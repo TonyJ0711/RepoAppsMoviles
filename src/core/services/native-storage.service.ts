@@ -1,5 +1,5 @@
 import { Preferences } from '@capacitor/preferences';
-import type { IStorageService } from './storage.interface';
+import type { IStorageService } from './storage.interface.ts';
  
 export class NativeStorageService implements IStorageService {
   async set(key: string, value: string): Promise<void> {

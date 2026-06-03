@@ -1,16 +1,18 @@
 import express from 'express';
-import productRoutes from './routes/product.routes';
+import dotenv from 'dotenv';
+import authRoutes from './features/auth/auth.routes';
+import taskRoutes from './routes/tasks.routes';
+
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Middleware global para entender JSON
 app.use(express.json());
 
-// Enrutar las peticiones de productos
-app.use('/api/products', productRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/products', taskRoutes); // ← agrega esta línea
 
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
-

@@ -1,4 +1,4 @@
-import { IStorageService } from './storage.interface';
+import { IStorageService } from './storage.interface.ts';
 export declare class NativeStorageService implements IStorageService {
     set(key: string, value: string): Promise<void>;
     get(key: string): Promise<string | null>;
